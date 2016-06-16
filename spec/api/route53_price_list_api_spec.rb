@@ -21,4 +21,13 @@ RSpec.describe Route53PriceListAPI do
     expect(routing_types).to eq(expected_routing_types)
   end
 
+  it "GET routing targets for 'Geo DNS' DNS Query" do
+    get '/v1/AmazonRoute53/product_families/DNS_Query/routing_types/Geo_DNS/routing_targets'
+    expect(last_response).to be_ok
+
+    routing_targets = last_response.body
+    expected_routing_targets = '["AWS Infrastructure","External"]'
+    expect(routing_targets).to eq(expected_routing_targets)
+  end
+
 end

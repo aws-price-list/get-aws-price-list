@@ -18,4 +18,8 @@ class Route53PriceListAPI < Sinatra::Base
     json read_route53_price_list.get_routing_types
   end
 
+  get '/v1/AmazonRoute53/product_families/DNS_Query/routing_types/Geo_DNS/routing_targets' do
+    json read_route53_price_list.get_Geo_DNS_routing_targets
+  end
+
 end

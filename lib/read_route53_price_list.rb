@@ -14,4 +14,8 @@ class ReadRoute53PriceList
     @client[:skus].find(:productFamily => "DNS Query").distinct("attributes.routingType").sort
   end
 
+  def get_Geo_DNS_routing_targets
+    @client[:skus].find(:productFamily => "DNS Query", "attributes.routingType" => "Geo DNS").distinct("attributes.routingTarget").sort
+  end
+
 end
