@@ -11,4 +11,14 @@ RSpec.describe Route53PriceListAPI do
     expect(product_families).to eql(expected_product_families)
   end
 
+
+  it 'GET routing types for DNS Query product family' do
+    get '/v1/AmazonRoute53/product_families/DNS_Query/routing_types'
+    expect(last_response).to be_ok
+
+    routing_types = last_response.body
+    expected_routing_types = '["Geo DNS","Latency Based Routing","Standard"]'
+    expect(routing_types).to eq(expected_routing_types)
+  end
+
 end

@@ -10,4 +10,8 @@ class ReadRoute53PriceList
     @client[:skus].distinct("productFamily").sort
   end
 
+  def get_routing_types
+    @client[:skus].find(:productFamily => "DNS Query").distinct("attributes.routingType").sort
+  end
+
 end
