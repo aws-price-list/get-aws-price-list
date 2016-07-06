@@ -10,6 +10,10 @@ class Route53PriceListAPI < Sinatra::Base
 
   read_route53_price_list = ReadRoute53PriceList.new(db_url)
 
+  get '/v1/healthcheck' do
+    json "OK"
+  end
+
   get '/v1/AmazonRoute53/product_families' do
     json read_route53_price_list.get_product_families
   end

@@ -2,6 +2,11 @@ require_relative '../../api/route53_price_list_api'
 
 RSpec.describe Route53PriceListAPI do
 
+  it 'respond to healthcheck' do
+    get '/v1/healthcheck'
+    expect(last_response).to be_ok
+  end
+
   it 'GET product families' do
     get '/v1/AmazonRoute53/product_families'
     expect(last_response).to be_ok
